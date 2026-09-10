@@ -48,18 +48,43 @@ document.addEventListener('keydown', function (e) {
 });
 
 // ===== 4. Messages de remplacement si un fichier manque =====
+// Storyboard : on affiche le message seulement si l'image ne se charge pas.
+const storyboardFigure = document.getElementById('storyboard-figure');
+
 storyboardImg.addEventListener('error', function () {
-  document.getElementById('storyboard-figure').classList.add('is-missing');
+  storyboardFigure.classList.add('is-missing');
 });
-
-document.querySelector('#video source').addEventListener('error', function () {
-  document.getElementById('video-wrap').classList.add('is-missing');
+storyboardImg.addEventListener('load', function () {
+  storyboardFigure.classList.remove('is-missing');
 });
-
-// Si l'erreur a eu lieu avant le chargement du script
 if (storyboardImg.complete && storyboardImg.naturalWidth === 0) {
-  document.getElementById('storyboard-figure').classList.add('is-missing');
+  storyboardFigure.classList.add('is-missing');
 }
-if (document.getElementById('video').networkState === 3) {
-  document.getElementById('video-wrap').classList.add('is-missing');
+
+// Vidéo : message seulement en cas d'erreur réelle de chargement.
+const video = document.getElementById('video');
+const videoWrap = document.getElementById('video-wrap');
+
+video.addEventListener('error', function () {
+  videoWrap.classList.add('is-missing');
+});
+document.querySelector('#video source').addEventListener('error', function () {
+  videoWrap.classList.add('is-missing');
+});
+video.addEventListener('loadeddata', function () {
+  videoWrap.classList.remove('is-missing');
+});
+// Si la vidéo est déjà chargée quand le script s'exécute
+if (video.readyState >= 2) {
+  videoWrap.classList.remove('is-missing');
 }
+
+// Vérification finale une fois la page entièrement chargée
+window.addEventListener('load', function () {
+  if (video.readyState >= 2 || (video.buffered && video.buffered.length > 0)) {
+    videoWrap.classList.remove('is-missing');
+  }
+  if (storyboardImg.naturalWidth > 0) {
+    storyboardFigure.classList.remove('is-missing');
+  }
+});
