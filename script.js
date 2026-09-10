@@ -55,3 +55,11 @@ storyboardImg.addEventListener('error', function () {
 document.querySelector('#video source').addEventListener('error', function () {
   document.getElementById('video-wrap').classList.add('is-missing');
 });
+
+// Si l'erreur a eu lieu avant le chargement du script
+if (storyboardImg.complete && storyboardImg.naturalWidth === 0) {
+  document.getElementById('storyboard-figure').classList.add('is-missing');
+}
+if (document.getElementById('video').networkState === 3) {
+  document.getElementById('video-wrap').classList.add('is-missing');
+}
