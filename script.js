@@ -8,9 +8,9 @@ switchAnnee.addEventListener('click', function () {
   switchAnnee.setAttribute('aria-pressed', est2025);
 
   if (est2025) {
-    etatAnnee.innerHTML = 'Vous plongez en <strong>2025</strong> — le récif a blanchi.';
+    etatAnnee.innerHTML = 'Vous êtes en <strong>2025</strong>&nbsp;: le corail a blanchi.';
   } else {
-    etatAnnee.innerHTML = 'Vous plongez en <strong>2015</strong> — le récif est vivant.';
+    etatAnnee.innerHTML = 'Vous êtes en <strong>2015</strong>&nbsp;: le récif est encore plein de couleurs.';
   }
 });
 
