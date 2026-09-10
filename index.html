@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Récif — court métrage</title>
+  <meta name="description" content="Le Récif, court métrage fictif : deux plongées sur le même récif, à dix ans d'écart.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== EN-TÊTE ===== -->
+  <header class="topbar">
+    <a href="#top" class="logo">Le Récif</a>
+    <nav class="nav">
+      <a href="#scenario">Scénario</a>
+      <a href="#storyboard">Storyboard</a>
+      <a href="#extrait">Extrait</a>
+      <a href="#credits">Crédits</a>
+    </nav>
+    <!-- Élément interactif principal : bascule 2015 / 2025 -->
+    <button id="switch-annee" class="switch" type="button" aria-pressed="false" title="Changer d'année">
+      <span class="switch__label switch__label--2015">2015</span>
+      <span class="switch__track"><span class="switch__thumb"></span></span>
+      <span class="switch__label switch__label--2025">2025</span>
+    </button>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top">
+    <div class="hero__rays" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="eyebrow">Court métrage fictif · 2026</p>
+      <h1 class="hero__title">Le <em>Récif</em></h1>
+      <p class="hero__tagline">Deux plongées. Dix ans d'écart. Un même récif.</p>
+      <p class="hero__state" id="etat-annee">Vous plongez en <strong>2015</strong> — le récif est vivant.</p>
+      <a href="#extrait" class="btn btn--primary">Voir l'extrait</a>
+    </div>
+    <p class="hero__meta">Réalisation&nbsp;: Vadim Schmitt · Digital Campus Paris</p>
+  </section>
+
+  <main>
+
+    <!-- ===== 01 SCÉNARIO ===== -->
+    <section class="section" id="scenario">
+      <div class="section__head">
+        <span class="section__num">01</span>
+        <h2 class="section__title">Scénario</h2>
+        <button class="btn btn--ghost js-toggle" type="button" data-target="bloc-scenario" aria-expanded="true">Masquer le scénario</button>
+      </div>
+
+      <div class="section__body" id="bloc-scenario">
+        <p class="logline">Sur un même récif, deux plongées à dix ans d'écart.</p>
+        <ol class="scenario">
+          <li><span class="tag">2015</span>Le corail est rouge, jaune, vivant&nbsp;; les poissons sont partout, une raie manta plane au-dessus du récif.</li>
+          <li><span class="tag">Fondu</span>L'image plonge dans le noir.</li>
+          <li><span class="tag tag--pale">2025</span>Le même récif, blanc, cassé, silencieux. Presque plus rien ne bouge.</li>
+          <li>Une plongeuse pose la main sur une branche de corail morte.</li>
+          <li>Elle sort un fragment de corail vivant et le fixe sur la roche&nbsp;: une bouture.</li>
+          <li>Dernier plan&nbsp;: un petit poisson revient s'y cacher. Un début.</li>
+        </ol>
+        <p class="intention">
+          <strong>Note d'intention.</strong> Le film ne montre pas une catastrophe spectaculaire, il montre un silence.
+          Le fondu au noir entre 2015 et 2025 fait ressentir en une seconde ce que dix ans de réchauffement ont fait au récif.
+          La fin reste ouverte&nbsp;: la restauration existe, et elle commence par un geste.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 02 STORYBOARD ===== -->
+    <section class="section" id="storyboard">
+      <div class="section__head">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Storyboard</h2>
+        <button class="btn btn--ghost js-toggle" type="button" data-target="bloc-storyboard" aria-expanded="true">Masquer le storyboard</button>
+      </div>
+
+      <div class="section__body" id="bloc-storyboard">
+        <figure class="storyboard" id="storyboard-figure">
+          <img src="img/storyboard.png" alt="Storyboard en 4 cases du court métrage Le Récif" id="storyboard-img">
+          <div class="storyboard__fallback">Storyboard en cours d'intégration</div>
+          <figcaption class="storyboard__hint">Cliquez sur l'image pour l'agrandir</figcaption>
+        </figure>
+
+        <ol class="cases">
+          <li><span class="cases__n">1</span><strong>2015 · Plan large</strong>Récif coloré, raie manta, banc de poissons.</li>
+          <li><span class="cases__n">2</span><strong>2025 · Même cadrage</strong>Corail blanchi et cassé, eau vide.</li>
+          <li><span class="cases__n">3</span><strong>Gros plan</strong>La main de la plongeuse sur le corail mort.</li>
+          <li><span class="cases__n">4</span><strong>Plan rapproché</strong>La bouture fixée sur la roche, un poisson revient.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 03 EXTRAIT VIDÉO ===== -->
+    <section class="section" id="extrait">
+      <div class="section__head">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Extrait</h2>
+      </div>
+
+      <div class="section__body">
+        <div class="video" id="video-wrap">
+          <video controls preload="metadata" playsinline id="video">
+            <source src="video/extrait.mp4" type="video/mp4">
+            Votre navigateur ne lit pas la vidéo. <a href="video/extrait.mp4">Télécharger l'extrait</a>.
+          </video>
+          <div class="video__fallback">Extrait en cours d'export</div>
+        </div>
+        <ul class="meta">
+          <li><span>Durée</span>≈ 45 s</li>
+          <li><span>Montage</span>Adobe Premiere Pro</li>
+          <li><span>Images</span>Libres de droits (Pexels, Pixabay)</li>
+          <li><span>Lien direct</span><a href="video/extrait.mp4">extrait.mp4</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== CRÉDITS & IA ===== -->
+  <footer class="footer" id="credits">
+    <div class="footer__grid">
+      <div>
+        <h3>Crédits</h3>
+        <p>Scénario, storyboard, montage&nbsp;: Vadim Schmitt</p>
+        <p>Images vidéo libres de droits&nbsp;:</p>
+        <ul class="sources">
+          <!-- À compléter avec les liens des rushes utilisés -->
+          <li><a href="https://www.pexels.com/fr-fr/" target="_blank" rel="noopener">Pexels</a> — licence libre</li>
+          <li><a href="https://pixabay.com/fr/videos/" target="_blank" rel="noopener">Pixabay</a> — licence libre</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Usage de l'IA</h3>
+        <p>
+          Claude (Anthropic) a été utilisé pour planifier l'épreuve, proposer des pistes de scénario
+          et écrire la base du code HTML/CSS/JavaScript de cette page.
+          Le choix du scénario, la sélection des rushes, le montage vidéo et le storyboard
+          ont été réalisés par moi&nbsp;; le code a été relu et adapté.
+        </p>
+      </div>
+    </div>
+    <p class="footer__bottom">Rattrapage B1 · Classe C · Digital Campus Paris · 2026</p>
+  </footer>
+
+  <!-- Visionneuse plein écran du storyboard -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" type="button" aria-label="Fermer">×</button>
+    <img src="" alt="Storyboard agrandi" id="lightbox-img">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
